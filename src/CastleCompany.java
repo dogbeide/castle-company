@@ -1,4 +1,5 @@
 import java.util.*;
+import java.util.regex.*;
 
 
 public class CastleCompany {
@@ -9,9 +10,14 @@ public class CastleCompany {
 		int castles;
 		List<Integer> land = new ArrayList<Integer>();
 		
-		// Design the landscape
+		// Get landscape design:
 		Scanner feed = new Scanner(System.in);
-		feed.useDelimiter(System.getProperty("line.separator")); 
+		
+		//Safe regex: multi-space, multi-comma, and newline delimiter/separator support
+		Pattern antiRegex = Pattern.compile(System.getProperty("line.separator") + "|(\\s+,*)+|(,+\\s*)+");
+		feed.useDelimiter(antiRegex);
+		
+		// Prompt architect:
 		System.out.println("Enter a series of integers as your landscape:");
 		
 		// Extra land from blueprints, build blocks
@@ -19,11 +25,12 @@ public class CastleCompany {
 			int piece = feed.nextInt();
 			land.add(piece);
 		}
-		System.out.println(land);
+		
 		feed.close();
 		
 		castles = getCastleCount(land);
-		System.out.println(castles);
+		System.out.println("Official landscape: " + land);
+		System.out.println("Number of castle plots available: " + castles);
 		
 	}
 	
