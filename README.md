@@ -8,3 +8,11 @@ Input:
  - A series of integers (separated by commas and/or spaces) to represent a landscape with varying heights at each point.
 Output:
  - Returns the number of castles that can be built
+
+----------------------------------------
+Sample Input:
+1 2 3 2 1 2    3   2 44 ,,, 3 6 5 5 5 5 6 5 5 5  123
+
+output: 
+Official landscape: [1, 2, 3, 2, 1, 2, 3, 2, 44, 3, 6, 5, 5, 5, 5, 6, 5, 5, 5, 123]
+Number of castle plots available: 11
