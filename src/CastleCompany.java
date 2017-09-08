@@ -20,28 +20,24 @@ public class CastleCompany {
 		// Prompt architect:
 		System.out.println("Enter a series of integers as your landscape:");
 		
-		//Due diligence for the blueprint, error checking
 		
-		
-		// Extra land from blueprints, build blocks
+		// Extract land from blueprints, build blocks
 		try {
-			while(feed.hasNext()){
+			while(feed.hasNextInt()){
 				int piece = feed.nextInt();
 				land.add(piece);
 			}
+			castles = getCastleCount(land);
+			System.out.println("Official landscape: " + land);
+			System.out.println("Number of castle plots available: " + castles);
 		}
 		catch (Exception e){
 			e.printStackTrace();
 			System.out.println("\nPlease enter only integers (separated by commas and/or spaces)\n");
 		}
-		finally {
-			feed.close();
-			System.exit(1);
-		}
+		finally {feed.close();} // Due diligence
 		
-		castles = getCastleCount(land);
-		System.out.println("Official landscape: " + land);
-		System.out.println("Number of castle plots available: " + castles);
+		
 		
 	}
 	
