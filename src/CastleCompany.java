@@ -7,17 +7,19 @@ public class CastleCompany {
 	
 	public static void main(String[] args){
 		int castles;
-		ArrayList<Integer> land = new ArrayList<Integer>();
+		List<Integer> land = new ArrayList<Integer>();
 		
 		// Design the landscape
 		Scanner feed = new Scanner(System.in);
+		feed.useDelimiter(System.getProperty("line.separator")); 
 		System.out.println("Enter a series of integers as your landscape:");
 		
 		// Extra land from blueprints, build blocks
 		while(feed.hasNextInt()){
-			if (feed.next() == "\n") break;
-			land.add(feed.nextInt());
+			int piece = feed.nextInt();
+			land.add(piece);
 		}
+		System.out.println(land);
 		feed.close();
 		
 		castles = getCastleCount(land);
@@ -25,7 +27,7 @@ public class CastleCompany {
 		
 	}
 	
-	public static int getCastleCount(ArrayList<Integer> land){
+	public static int getCastleCount(List<Integer> land){
 		int i, castles;
 		int cur, next, prev;
 		Slope state;
@@ -43,6 +45,7 @@ public class CastleCompany {
 		
 		//Prepare, init
 		cur = land.get(0);
+		next = land.get(1);
 		state = Slope.PEAKVALLEY;
 		castles = 1; // Always build @start, non-empty
 		
