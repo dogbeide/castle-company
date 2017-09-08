@@ -11,8 +11,10 @@ Output:
 
 ----------------------------------------
 Sample Input:
+
 1 2 3 2 1 2    3   2 44 ,,, 3 6 5 5 5 5 6 5 5 5  123
 
-output: 
+Output: 
+
 Official landscape: [1, 2, 3, 2, 1, 2, 3, 2, 44, 3, 6, 5, 5, 5, 5, 6, 5, 5, 5, 123]
 Number of castle plots available: 11
